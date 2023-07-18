@@ -85,7 +85,7 @@
 //    Serial.println(slot2Status);
 //    Serial.print("Number of slot: ");
 //    Serial.println(slotNumber);
-//    
+//
 //    Firebase.setInt(firebaseData, path + "/Slot 1 status of parking 2", slot1Status.toInt());
 //    Firebase.setInt(firebaseData, path + "/Slot 2 status of parking 2", slot2Status.toInt());
 //    Firebase.setInt(firebaseData, path + "/Slot car left of parking 2", slotNumber);
@@ -101,8 +101,10 @@
 #define FIREBASE_HOST "fir-firebase-4a9b5-default-rtdb.asia-southeast1.firebasedatabase.app"              // the project name address from firebase id
 
 #define FIREBASE_AUTH "JgSwcozm07mDj5hl9yVwextZfT11Lxb2KdLMrKWr"       // the secret key generated from firebase
-#define WIFI_SSID "Truong_thanh_len"
-#define WIFI_PASSWORD "muoinghin"
+//#define WIFI_SSID "Truong_thanh_len"
+//#define WIFI_PASSWORD "muoinghin"
+#define WIFI_SSID "HayTuLapDi"
+#define WIFI_PASSWORD "haytulapdi"
 
 FirebaseData firebaseData;
 String path = "/";
@@ -141,6 +143,12 @@ void setup()
   }
 }
 
+
+String changeValue(int x) {
+  if (x == 1) return "true";
+  else return "false";
+}
+
 unsigned long lastTime = 0;
 void loop()
 {
@@ -172,24 +180,25 @@ void loop()
     Serial.println(slot2Status);
     Serial.print("Number of slot: ");
     Serial.println(slotNumber);
-    Firebase.setInt(firebaseData, path + "/Slot 1 status of parking 2", slot1Status);
-    Firebase.setInt(firebaseData, path + "/Slot 2 status of parking 2", slot2Status);
-    Firebase.setInt(firebaseData, path + "/Slot car left of parking 2", slotNumber);
+
+    Firebase.setString(firebaseData, path + "/Zone1_A1", changeValue(slot1Status));
+    Firebase.setString(firebaseData, path + "/Zone1_A2", changeValue(slot2Status));
+    //    Firebase.setInt(firebaseData, path + "/Zone1_A3", slotNumber);
     lastTime = millis();
   }
-    fireStatus = Firebase.getInt("LED_STATUS");                                      // get ld status input from firebase
-    if (fireStatus == "ON")
-    {                                                          // compare the input of led status received from firebase
-      Serial.println("Led Turned ON");
-      digitalWrite(led, HIGH);                                                         // make external led ON
-    }
-    else if (fireStatus == "OFF")
-    {                                                  // compare the input of led status received from firebase
-      Serial.println("Led Turned OFF");
-      digitalWrite(led, LOW);                                                         // make external led OFF
-    }
-    else
-    {
-      Serial.println("Command Error! Please send ON/OFF");
-    }
+//  fireStatus = Firebase.getInt("LED_STATUS");                                      // get ld status input from firebase
+//  if (fireStatus == "ON")
+//  { // compare the input of led status received from firebase
+//    Serial.println("Led Turned ON");
+//    digitalWrite(led, HIGH);                                                         // make external led ON
+//  }
+//  else if (fireStatus == "OFF")
+//  { // compare the input of led status received from firebase
+//    Serial.println("Led Turned OFF");
+//    digitalWrite(led, LOW);                                                         // make external led OFF
+//  }
+//  else
+//  {
+//    Serial.println("Command Error! Please send ON/OFF");
+//  }
 }

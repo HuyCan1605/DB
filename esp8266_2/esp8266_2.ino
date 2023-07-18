@@ -46,6 +46,11 @@ void setup()
   }
 }
 
+String changeValue(int x) {
+  if (x == 1) return "true";
+  else return "false";
+}
+
 unsigned long lastTime = 0;
 void loop()
 {
@@ -78,9 +83,9 @@ void loop()
     Serial.println(slot2Status);
     Serial.print("Number of slot: ");
     Serial.println(slotNumber);
-    Firebase.setInt(firebaseData, path + "/Slot 1 status of parking 1", slot1Status);
-    Firebase.setInt(firebaseData, path + "/Slot 2 status of parking 1", slot2Status);
-    Firebase.setInt(firebaseData, path + "/Slot car left of parking 1", slotNumber);
+    Firebase.setString(firebaseData, path + "/Zone2_B1", changeValue(slot1Status));
+    Firebase.setString(firebaseData, path + "/Zone2_B2", changeValue(slot2Status));
+//    Firebase.setInt(firebaseData, path + "/Zone2_B3", slotNumber);
     lastTime = millis();
   }
   //  fireStatus = Firebase.getString("LED_STATUS");                                      // get ld status input from firebase
