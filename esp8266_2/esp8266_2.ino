@@ -88,19 +88,5 @@ void loop()
 //    Firebase.setInt(firebaseData, path + "/Zone2_B3", slotNumber);
     lastTime = millis();
   }
-  //  fireStatus = Firebase.getString("LED_STATUS");                                      // get ld status input from firebase
-  //  if (fireStatus == "ON")
-  //  {                                                          // compare the input of led status received from firebase
-  //    Serial.println("Led Turned ON");
-  //    digitalWrite(led, HIGH);                                                         // make external led ON
-  //  }
-  //  else if (fireStatus == "OFF")
-  //  {                                                  // compare the input of led status received from firebase
-  //    Serial.println("Led Turned OFF");
-  //    digitalWrite(led, LOW);                                                         // make external led OFF
-  //  }
-  //  else
-  //  {
-  //    Serial.println("Command Error! Please send ON/OFF");
-  //  }
+
 }
