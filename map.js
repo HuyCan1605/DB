@@ -27,63 +27,6 @@ map.addControl(
     'top-left'
 );
 
-// let globalData;
-
-
-// let parking_car = [
-//     {
-//         name: 'Bãi đỗ xe trường FPT',
-//         color: '#e8b015',
-//         lngLat: [105.527740, 21.014672],
-//         description: '<a href="D:/Subject/IOC391/Firebase_test/detail.html">Bãi đỗ xe còn trống </a>'
-//     },
-//     {
-//         name: 'Bãi đỗ xe FPT SOFTWARE',
-//         color: '#88f02e',
-//         lngLat: [105.536774, 21.010295],
-//         description: ''
-//     },
-//     {
-//         name: 'Bãi đỗ xe trường Đại học Quốc Gia Hà Nội',
-//         color: '#3df2d7',
-//         lngLat: [105.508128, 20.997953],
-//         description: ''
-//     },
-//     {
-//         name: 'Bãi đỗ xe Nissan Company',
-//         color: '#3250fa',
-//         lngLat: [105.552528, 21.006450],
-//         description: ''
-//     },
-//     {
-//         name: 'Bãi đỗ xe Công Viên Khởi Nghiệp',
-//         color: '#e81554',
-//         lngLat: [105.537733, 21.014870],
-//         description: ''
-//     }
-// ]
-
-
-// parking_car.forEach(function ({ name, color, lngLat, description }) {
-//     const popup = new mapboxgl
-//         .Popup({ offset: 25 })
-//         .setText(description);
-
-//     new mapboxgl.Marker({
-//         color,
-//         scale: 1
-//     })
-//         .setLngLat(lngLat)
-//         .setPopup(popup)
-//         .addTo(map);
-// });
-
-
-
-
-
-
-
 map.on('load', async () => {
     const valuedb = await fetchDataFromFirebase();
 
@@ -193,28 +136,7 @@ map.on('load', async () => {
 
     };
 
-
-    // for (const marker of geojson.features)
-
-
-
 });
-
-
-
-
-
-
-
-
-// let valuedb = firebase.database().ref('/oke');
-// valuedb.on('value', snap => {
-//     let value = snap.val();
-
-//     // data.features[0].properties.description = value;
-
-
-// });
 
 
 
