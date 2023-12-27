@@ -86,9 +86,9 @@ void loop()
     Serial.print("Number of slot: ");
     Serial.println(slotNumber);
 
-    Firebase.setInt(firebaseData, path + "/Slot 1 status of parking 2", slot1Status.toInt());
-    Firebase.setInt(firebaseData, path + "/Slot 2 status of parking 2", slot2Status.toInt());
-    Firebase.setInt(firebaseData, path + "/Slot car left of parking 2", slotNumber);
+    Firebase.setString(firebaseData, path + "/Zone1_A1", changeValue(slot1Status));
+    Firebase.setString(firebaseData, path + "/Zone1_A2", changeValue(slot2Status));
+    //Firebase.setInt(firebaseData, path + "/Slot car left of parking 2", slotNumber);
     lastTime = millis();
   }
 }
